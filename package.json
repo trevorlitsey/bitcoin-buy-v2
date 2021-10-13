@@ -1,0 +1,24 @@
+{
+  "name": "bitcoin-buy-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trevorlitsey/bitcoin-buy-v2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trevorlitsey/bitcoin-buy-v2/issues"
+  },
+  "homepage": "https://github.com/trevorlitsey/bitcoin-buy-v2#readme",
+  "dependencies": {
+    "jest": "^27.2.5"
+  }
+}
