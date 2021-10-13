@@ -1,4 +1,9 @@
-exports.getAmountToBuy = ({
+const { BTC_USD } = require('./constants');
+const { coinbase } = require('./clients');
+
+let allTimeHigh = 45000;
+
+exports.getUsdToBuy = ({
   lowerBound,
   upperBound,
   minBuy,
@@ -23,4 +28,14 @@ exports.getAmountToBuy = ({
   const roomAvailableAboveMinBuy = maxBuy - minBuy;
 
   return +(minBuy + roomAvailableAboveMinBuy * percentage).toFixed(decimals);
+};
+
+exports.getBtcAllTimeHighAndCurrentPrice = async () => {
+  const { high, last } = await coinbase.getProduct24HrStats(BTC_USD);
+
+  if (high > allTimeHigh) {
+    allTimeHigh = +high;
+  }
+
+  return [allTimeHigh, +last];
 };

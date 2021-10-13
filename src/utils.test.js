@@ -1,9 +1,9 @@
-const { getAmountToBuy } = require('./utils');
+const { getUsdToBuy } = require('./utils');
 
-describe('getAmountToBuy', () => {
+describe('getUsdToBuy', () => {
   it('should return max amount', () => {
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 0,
         upperBound: 70,
         minBuy: 10,
@@ -12,7 +12,7 @@ describe('getAmountToBuy', () => {
       })
     ).toBe(20);
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 10,
         upperBound: 70,
         minBuy: 10,
@@ -24,7 +24,7 @@ describe('getAmountToBuy', () => {
 
   it('should return min amount', () => {
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 0,
         upperBound: 70,
         minBuy: 10,
@@ -33,7 +33,7 @@ describe('getAmountToBuy', () => {
       })
     ).toBe(10);
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 0,
         upperBound: 70,
         minBuy: 10,
@@ -44,7 +44,7 @@ describe('getAmountToBuy', () => {
   });
   it('should return zero amount', () => {
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 30000,
         upperBound: 50000,
         minBuy: 0,
@@ -56,7 +56,7 @@ describe('getAmountToBuy', () => {
 
   it('should return between min and max amount', () => {
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 0,
         upperBound: 50,
         minBuy: 10,
@@ -65,7 +65,7 @@ describe('getAmountToBuy', () => {
       })
     ).toBe(15);
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 0,
         upperBound: 100,
         minBuy: 0,
@@ -74,7 +74,7 @@ describe('getAmountToBuy', () => {
       })
     ).toBe(30);
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 0,
         upperBound: 100,
         minBuy: 0,
@@ -83,7 +83,7 @@ describe('getAmountToBuy', () => {
       })
     ).toBe(15);
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 30000,
         upperBound: 50000,
         minBuy: 10,
@@ -92,13 +92,13 @@ describe('getAmountToBuy', () => {
       })
     ).toBe(20);
     expect(
-      getAmountToBuy({
+      getUsdToBuy({
         lowerBound: 30000,
         upperBound: 50000,
-        minBuy: 0,
+        minBuy: 10,
         maxBuy: 50,
         toCompare: 49000,
       })
-    ).toBe(0);
+    ).toBe(12);
   });
 });
