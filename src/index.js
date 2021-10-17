@@ -59,5 +59,4 @@ const buyBtc = async () => {
 
 var job = new CronJob(process.env.CRON, buyBtc, null, true, 'America/Chicago');
 
-// job.start();
-buyBtc();
+job.start();
