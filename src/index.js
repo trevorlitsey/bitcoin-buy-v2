@@ -7,7 +7,7 @@ const sendText = require('./sendText');
 const BUY = 'buy';
 const MARKET = 'market';
 const BTC_USD = 'BTC-USD';
-const THRESHOLD = 0.8;
+const THRESHOLD = 0.9;
 
 const placeOrder = async (usdToOrder) => {
   try {
